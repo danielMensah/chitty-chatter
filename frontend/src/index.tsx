@@ -5,10 +5,21 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ApolloProvider } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
-
+// import configure from './store'
+//
+// const store = configure();
 const client = new ApolloClient({
     uri: 'http://localhost:4000'
 });
+
+// ReactDOM.render(
+//     <Provider store={store}>
+//         <ApolloProvider client={client}>
+//             <App />
+//         </ApolloProvider>
+//     </Provider>,
+//     document.getElementById('root')
+// );
 
 ReactDOM.render(
     <ApolloProvider client={client}>

@@ -25,12 +25,12 @@ export default gql`
 
     type Mutation {
         sendMessage(
-			conversationId: String,
-			senderId: String,
+            conversationId: String,
+            senderId: String,
             receiverId: String,
-			senderDisplayName: String!,
-			receiverDisplayName: String!,
-			message: String!,
-		): Message!
+            senderDisplayName: String!,
+            receiverDisplayName: String!,
+            message: String!,
+        ): Message!
     }
 `;

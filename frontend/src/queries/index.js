@@ -1,7 +1,7 @@
-import * as User from './user';
-import * as Conversation from './conversation';
+import * as UserQueries from './user';
+import * as ConversationQueries from './conversation';
 
 export {
-  User,
-  Conversation
+  UserQueries,
+  ConversationQueries
 }

@@ -1,39 +1,33 @@
-import React from 'react';
+import React, { FC, Fragment } from 'react';
+import { IConversation, IMessage } from "./types";
 
-interface IMessage {
-    conversationId?: string;
-    senderId?: string;
-    receiverId?: string;
-    senderDisplayName: string;
-    receiverDisplayName: string;
-    message: string;
-}
-
-interface IConversation {
-    id: string;
-    senderId: string;
-    receiverId: string;
-    archived: boolean;
-    messages?: IMessage[];
-}
-
-
-const Conversation = (conversation: IConversation) => {
+const Conversation: FC<IConversation> = (conversation) => {
     if (conversation.messages) {
         return (
-            conversation.messages.map((meesage, index) => {
-                return <Message/>
-            })
+            <Fragment>
+                {
+                    conversation.messages.map((message, index) => {
+                        return (
+                            <Message
+                                key={index}
+                                message={message.message}
+                                receiverDisplayName={message.receiverDisplayName}
+                                senderDisplayName={message.senderDisplayName}
+                            />
+                        )
+                    })
+                }
+            </Fragment>
         )
     }
 
     return <div>Nothing for: {conversation.id}</div>
 };
 
-const Message = (props) => {
+const Message: FC<IMessage> = (message) => {
     return (
         <div>
-
+            {message.message}
         </div>
     )
 };
